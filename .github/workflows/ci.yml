@@ -67,14 +67,13 @@ jobs:
       - integration-test
     steps:
       - uses: actions/checkout@v4
-
       # authenticate with GCP with workload identity provider
       - uses: "google-github-actions/auth@v2"
         id: auth
         name: Authenticate to GCP
         with:
           project_id: "cs1660-cicd"
-          workload_identity_provider: "projects/13866474626/locations/global/workloadIdentityPools/github"
+          workload_identity_provider: "projects/13866474626/locations/global/workloadIdentityPools/github/providers/my-repo"
 
       # configure/login with docker
       - name: gcloud Configure Docker
@@ -93,4 +92,4 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: us-east1-docker.pkg.dev/cc-spring2025/dansc0de/fastapi-server:v2
+          tags: us-east1-docker.pkg.dev/cs1660-cicd/cs1660-cicd-acav333-repo/app:v1

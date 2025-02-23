@@ -74,6 +74,7 @@ jobs:
         with:
           project_id: "cs1660-cicd"
           workload_identity_provider: "projects/13866474626/locations/global/workloadIdentityPools/github/providers/my-repo"
+          service_account: "my-service-account@cs1660-cicd.iam.gserviceaccount.com"
 
       # configure/login with docker
       - name: gcloud Configure Docker
